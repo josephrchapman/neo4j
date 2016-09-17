@@ -2,7 +2,6 @@
 # Installs Neo4j on AWS Linux.  Default installation directory is /opt/neo4j
 
 NEO4J_INSTALL_DIR="/opt/neo4j"
-NEO4J_PASSWORD="graph"
 NEO4J="http://neo4j.com/artifact.php?name=neo4j-community-3.0.4-unix.tar.gz"
 
 ########################################################################################################
@@ -88,9 +87,10 @@ setupAuthUser(){
     curl -H "Content-Type: application/json" -X POST -d "{\"password\":\"${1}\"}" -u neo4j:neo4j http://localhost:7474/user/neo4j/password
     echo "Changed default Neo4j username"
 }
-
+echo -n "Enter a new password for neo4j and press [ENTER]: "
+read password
 checkJava
 installNeo4j "$NEO4J_INSTALL_DIR" "$NEO4J"
 setupNeo4j "$NEO4J_INSTALL_DIR"
 startNeo4j "$NEO4J_INSTALL_DIR"
-setupAuthUser "$NEO4J_PASSWORD"
+setupAuthUser "$password"
