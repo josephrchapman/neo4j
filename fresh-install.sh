@@ -1,5 +1,5 @@
 #!/bin/bash
-# Installs Neo4j on AWS Linux.  Default installation directory is /opt/neo4j
+# Installs Neo4j on Amazon Linux.  Default installation directory is /opt/neo4j
 
 NEO4J_INSTALL_DIR="/opt/neo4j"
 NEO4J="http://neo4j.com/artifact.php?name=neo4j-community-3.0.4-unix.tar.gz"
