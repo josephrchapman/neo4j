@@ -85,9 +85,9 @@ startNeo4j(){
 setupAuthUser(){
     sleep 10
     curl -H "Content-Type: application/json" -X POST -d "{\"password\":\"${1}\"}" -u neo4j:neo4j http://localhost:7474/user/neo4j/password
-    echo "Changed default Neo4j username"
+    echo "Changed default Neo4j password"
 }
-echo -n "Enter a new password for neo4j and press [ENTER]: "
+echo -n "Enter a new password for default neo4j user and press [ENTER]: "
 read password
 checkJava
 installNeo4j "$NEO4J_INSTALL_DIR" "$NEO4J"
