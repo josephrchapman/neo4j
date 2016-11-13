@@ -2,14 +2,14 @@
 # Installs Neo4j on Amazon Linux.  Default installation directory is /opt/neo4j
 
 NEO4J_INSTALL_DIR="/opt/neo4j"
-NEO4J="http://neo4j.com/artifact.php?name=neo4j-community-3.0.4-unix.tar.gz"
+NEO4J="http://neo4j.com/artifact.php?name=neo4j-community-3.0.7-unix.tar.gz"
 
 ########################################################################################################
 
 downloadNeo4j(){
     installPath=$1
     url=$2
-    wget -O "$installPath"/neo4j-community-3.0.4-unix.tar.gz "$url" &> /dev/null
+    wget -O "$installPath"/neo4j-community-3.0.7-unix.tar.gz "$url" &> /dev/null
     if [[ "$?" != 0 ]]; then
         echo "Neo4j failed to download from: $url"
         echo
@@ -19,9 +19,9 @@ downloadNeo4j(){
     else
         echo "Neo4j was downloaded and saved to $installPath"
         echo "Extracting Neo4j tarball..."
-        tar  --strip-components=1 -xzf "$installPath"/neo4j-community-3.0.4-unix.tar.gz -C "$installPath"
+        tar  --strip-components=1 -xzf "$installPath"/neo4j-community-3.0.7-unix.tar.gz -C "$installPath"
         echo "Cleaning up and removing Neo4j tarball..."
-        rm -f "$installPath"/neo4j-community-3.0.4-unix.tar.gz
+        rm -f "$installPath"/neo4j-community-3.0.7-unix.tar.gz
     fi
 }
 
